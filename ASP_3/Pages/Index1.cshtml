@@ -1,0 +1,21 @@
+﻿@page
+@model ASP_3.Pages.Index1Model
+@{
+    ViewData ["Title"] = "Кинтотеатр";
+}
+<h2 style="text-align:center">Наш кинотеатр приветсвует Вас</h2>
+<br/><br/>
+<table style="color:darkred; font-size:20px"> 
+    @foreach(var FilmItem in Model.Films) { 
+    
+    <tr style="height:25px"><td style="width:200px"><a href="/api/v1/Film/GetFilmByName?name=@FilmItem.Name.ToString()"> @FilmItem.Name</a> </td">
+
+    @foreach (var item in FilmItem.Session)
+    {
+
+<td style="width:100px"> @item.ToString()</td>
+    }
+            </tr>
+     }
+        
+</table>
